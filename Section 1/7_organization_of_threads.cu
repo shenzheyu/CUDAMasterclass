@@ -5,18 +5,14 @@
 
 __global__ void print_details()
 {
-	printf("blockIdx.x : %d, blockIdx.y : %d, blockIdx.z : %d, blockDim.x : %d, blockDim.y : %d, gridDim.x : %d, gridDim.y :%d \n",
-		blockIdx.x, blockIdx.y, blockIdx.z,blockDim.x, blockDim.y, gridDim.x, gridDim.y);
+	printf("blockIdx.x : %d, blockIdx.y : %d, blockIdx.z : %d, blockIdx.x : %d, blockIdx.y : %d, blockIdx.z : %d, gridDim.x : %d, gridDim.y :%d, gridDim.z :%d \n",
+		blockIdx.x, blockIdx.y, blockIdx.z, blockIdx.x, blockIdx.y, blockIdx.z, gridDim.x, gridDim.y, gridDim.z);
 }
 
 int main()
 {
-	int nx, ny;
-	nx = 16;
-	ny = 16;
-
-	dim3 block(8, 8);
-	dim3 grid(nx / block.x, ny / block.y);
+	dim3 block(4, 4, 4);
+	dim3 grid(2, 2, 2);
 
 	print_details << <grid, block >> > ();
 	cudaDeviceSynchronize();
