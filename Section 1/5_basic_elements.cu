@@ -3,20 +3,20 @@
 
 #include <stdio.h>
 
-//__global__ void hello_kernel()
-//{
-//	printf("Hello cuda world \n");
-//}
+__global__ void hello_kernel()
+{
+	printf("Hello cuda world \n");
+}
 
-//int main()
-//{
-//	printf("hello from main \n");
-//
-//	dim3 block();
-//
-//	hello_kernel <<< 1, 1 >>> ();
-//
-//	cudaDeviceSynchronize();
-//	cudaDeviceReset();
-//	return 0;
-//}
+int main()
+{
+	printf("hello from main \n");
+
+	dim3 block();
+
+	hello_kernel <<< 1, 1 >>> ();
+
+	cudaDeviceSynchronize();
+	cudaDeviceReset();
+	return 0;
+}
