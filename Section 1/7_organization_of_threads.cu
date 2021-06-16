@@ -9,18 +9,18 @@ __global__ void print_details()
 		blockIdx.x, blockIdx.y, blockIdx.z,blockDim.x, blockDim.y, gridDim.x, gridDim.y);
 }
 
-//int main()
-//{
-//	int nx, ny;
-//	nx = 16;
-//	ny = 16;
-//
-//	dim3 block(8, 8);
-//	dim3 grid(nx / block.x, ny / block.y);
-//
-//	print_details << <grid, block >> > ();
-//	cudaDeviceSynchronize();
-//
-//	cudaDeviceReset();
-//	return 0;
-//}
+int main()
+{
+	int nx, ny;
+	nx = 16;
+	ny = 16;
+
+	dim3 block(8, 8);
+	dim3 grid(nx / block.x, ny / block.y);
+
+	print_details << <grid, block >> > ();
+	cudaDeviceSynchronize();
+
+	cudaDeviceReset();
+	return 0;
+}
