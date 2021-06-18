@@ -17,14 +17,14 @@ __global__ void print_details_of_warps()
 		threadIdx.x, blockIdx.x, blockIdx.y, gid, warp_id, gbid);
 }
 
-//int main(int argc , char** argv)
-//{
-//	dim3 block_size(42);
-//	dim3 grid_size(2,2);
-//
-//	print_details_of_warps << <grid_size,block_size >> > ();
-//	cudaDeviceSynchronize();
-//
-//	cudaDeviceReset();
-//	return EXIT_SUCCESS;
-//}
+int main(int argc , char** argv)
+{
+	dim3 block_size(42);
+	dim3 grid_size(2,2);
+
+	print_details_of_warps << <grid_size,block_size >> > ();
+	cudaDeviceSynchronize();
+
+	cudaDeviceReset();
+	return EXIT_SUCCESS;
+}
