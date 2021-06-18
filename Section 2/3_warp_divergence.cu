@@ -47,21 +47,21 @@ __global__ void divergence_code()
 	}
 }
 
-//int main(int argc, char** argv)
-//{
-//	printf("\n-----------------------WARP DIVERGENCE EXAMPLE------------------------ \n\n");
-//
-//	int size = 1 << 22;
-//
-//	dim3 block_size(128);
-//	dim3 grid_size((size + block_size.x -1)/ block_size.x);
-//
-//	code_without_divergence << <grid_size, block_size >> > ();
-//	cudaDeviceSynchronize();
-//
-//	divergence_code << <grid_size, block_size >> > ();
-//	cudaDeviceSynchronize();
-//
-//	cudaDeviceReset();
-//	return 0;
-//}
+int main(int argc, char** argv)
+{
+	printf("\n-----------------------WARP DIVERGENCE EXAMPLE------------------------ \n\n");
+
+	int size = 1 << 22;
+
+	dim3 block_size(128);
+	dim3 grid_size((size + block_size.x -1)/ block_size.x);
+
+	code_without_divergence << <grid_size, block_size >> > ();
+	cudaDeviceSynchronize();
+
+	divergence_code << <grid_size, block_size >> > ();
+	cudaDeviceSynchronize();
+
+	cudaDeviceReset();
+	return 0;
+}
